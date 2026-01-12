@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sidh Inc. - Premier hospitality consulting firm established in 2007. Expert consulting services for hotels, restaurants, and F&B sector.">
+    <meta name="description" content="Sidh Inc. - Premier hospitality consulting services for hotels, resorts, restaurants and mixed-use developments. We deliver end-to-end advisory focused on sustained asset value creation and operational performance">
     <meta name="keywords" content="hospitality consulting, hotel consulting, restaurant consulting, feasibility study, market research, project planning">
     <title>Sidh Inc. - Premier Hospitality Consulting Services</title>
     <link rel="stylesheet" href="style.final.css">
@@ -15,9 +15,12 @@
     <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="#home" class="logo">
-                    <span class="logo-text">Sidh Inc.</span>
+               <!-- Updated Logo -->
+                <a href="#home" class="logo"> 
+                   <span class="logo-text">Sidh Inc.</span>
                 </a>
+
+
                 <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -27,7 +30,7 @@
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#expertise" class="nav-link">Expertise</a></li>
+                    <li><a href="#expertise" class="nav-link">Expertise</a></li>	
                     <li><a href="#contact" class="nav-link btn-contact">Get Started</a></li>
                 </ul>
             </div>
@@ -40,22 +43,66 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">Est. 2007</div>
-                <h1 class="hero-title">Transforming Hospitality Vision Into Reality</h1>
+                <h1 class="hero-title">Hospitality Consulting & Hotel Advisory Firm in India</h1>
                 <p class="hero-subtitle">Premier consultancy services for hotels, restaurants, and the F&B sector. We deliver turnkey solutions that drive sustained success.</p>
                 <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">17+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">360°</div>
-                        <div class="stat-label">Complete Solutions</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Client Focused</div>
-                    </div>
+                    
+<div class="stat-item">
+        <div class="stat-number">
+            <span class="counter" data-target="20">0</span><span class="suffix">+</span>
+        </div>
+        <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">
+            <span class="counter" data-target="360">0</span><span class="suffix">°</span>
+        </div>
+        <div class="stat-label">Complete Solutions</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">
+            <span class="counter" data-target="100">0</span><span class="suffix">%</span>
+        </div>
+        <div class="stat-label">Client Focused</div>
+    </div>
+
                 </div>
+
+<!-- Animation -->
+
+<script>
+(function () {
+    const DURATION = 1500; // animation duration in ms
+    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+    function animateCounter(el) {
+        if (el.dataset.animated === 'true') return;
+        el.dataset.animated = 'true';
+
+        const target = Number(el.dataset.target);
+        const startValue = 0;
+        const startTime = performance.now();
+
+        function frame(now) {
+            const progress = Math.min((now - startTime) / DURATION, 1);
+            const eased = easeOutCubic(progress);
+            const value = Math.floor(startValue + (target - startValue) * eased);
+            el.textContent = value.toLocaleString();
+            if (progress < 1) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) animateCounter(entry.target);
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.counter').forEach(el => observer.observe(el));
+})();
+</script>
+
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
                     <a href="#services" class="btn btn-secondary">Our Services</a>
@@ -77,8 +124,8 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p class="lead">Established in 2007 under the visionary leadership of Mr. Sandeep Puri, Sidh Inc. has flourished into a premier provider of hospitality consultancy services.</p>
-                    <p>We believe in understanding your unique needs over immediate desires, fostering sustained success through end-to-end services. Our approach is holistic – we don't just solve problems, we build partnerships that last.</p>
+                    <p class="lead">Established in 2007, Sidh Inc is a hospitality consulting firm advising hotel owners, developers and investors across India. We specialise in structuring the right operating models-leasing, management contracts, revenue-share and brand partnerships-to unlock long-term asset value.</p>
+                    <p>Our approach is commercially driven and owner-centric. We focus on understanding each asset’s unique potential and delivering end-to-end advisory that supports sustainable performance, rather than short-term solutions.</p>
                     <div class="philosophy-points">
                         <div class="point">
                             <i class="fas fa-check-circle"></i>
@@ -105,11 +152,11 @@
                 </div>
                 <div class="about-image">
                     <div class="founder-card">
-                        <div class="founder-icon">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h3>Mr. Sandeep Puri</h3>
-                        <p class="founder-title">Founder & CEO</p>
+                        
+			<div class="founder-photo"></div>
+     			<h3>Mr. Sandeep Puri</h3>
+    			<p class="founder-title">Founder & CEO</p>
+	
                         <p class="founder-description">Visionary leader with extensive experience in hospitality consulting. Founded Sidh Inc. in 2007 with a mission to transform hospitality businesses through strategic consulting and innovative solutions.</p>
                     </div>
                 </div>
@@ -144,7 +191,7 @@
                         <i class="fas fa-project-diagram"></i>
                     </div>
                     <h3>Project Planning</h3>
-                    <p>Developing tailored plans for efficient execution, ensuring your project stays on track, on time, and on budget.</p>
+                    <p>Developing tailored plans for efficient execution, ensuring your project stays on track, on time and on budget.</p>
                     <ul class="service-features">
                         <li>Timeline development</li>
                         <li>Resource allocation</li>
@@ -157,10 +204,10 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Operator Search</h3>
-                    <p>Identifying and recruiting top talent to manage your hospitality establishments with excellence and professionalism.</p>
+                    <p>Identifying and recruiting the most suitable hotel brand and operating partner to manage your hotel asset with excellence and professionalism.</p>
                     <ul class="service-features">
-                        <li>Talent identification</li>
-                        <li>Operator vetting</li>
+                        <li>Operator search</li>
+                        <li>Brand tie-ups</li>
                         <li>Contract negotiation</li>
                     </ul>
                 </div>
@@ -195,12 +242,12 @@
                     <div class="service-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h3>Branding & Tie-Ups</h3>
-                    <p>Establishing strategic partnerships and compelling brand identity that resonates with your target market.</p>
+                    <h3>Restaurant Branding & Tie-Ups</h3>
+                    <p>Identifying and recruiting the most suitable hotel brand and operating partner to manage your hotel asset with excellence and professionalism.</p>
                     <ul class="service-features">
-                        <li>Brand development</li>
-                        <li>Partnership sourcing</li>
-                        <li>Franchise opportunities</li>
+                        <li>Management contract & franchise</li>
+                        <li>Lease & Revenue Share</li>
+                        <li>Contract negotiation</li>
                     </ul>
                 </div>
 
@@ -209,7 +256,7 @@
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3>Business Development</h3>
-                    <p>Identifying expansion opportunities and achieving long-term objectives through strategic growth planning.</p>
+                    <p>Strategic advisory for hotel brands and asset owners focused on sustainable growth and expansion.</p>
                     <ul class="service-features">
                         <li>Growth strategy</li>
                         <li>Market expansion</li>
@@ -267,17 +314,16 @@
                 <div class="expertise-card">
                     <div class="expertise-image fnb">
                         <div class="expertise-overlay">
-                            <i class="fas fa-cocktail"></i>
+                            <i class="fa-solid fa-handshake"></i>
                         </div>
                     </div>
                     <div class="expertise-content">
-                        <h3>F&B Sector</h3>
-                        <p>Comprehensive consulting for the food and beverage industry, focusing on profitability strategies and operational excellence.</p>
+                        <h3>Deal Structuring</h3>
+                        <p>Advisory on structuring lease, management contract, franchise and revenue-share models across hospitality and commercial assets.</p>
                         <ul>
-                            <li>Profitability optimization</li>
-                            <li>Menu engineering</li>
-                            <li>Supply chain management</li>
-                            <li>Quality control systems</li>
+                            <li>Management contract & franchise</li>
+                            <li>Lease & revenue share with MG</li>
+                            <li>Dry revenue share</li>
                         </ul>
                     </div>
                 </div>
@@ -298,7 +344,7 @@
                             <i class="fas fa-award"></i>
                             <div>
                                 <h4>Proven Track Record</h4>
-                                <p>17+ years of excellence in hospitality consulting</p>
+                                <p>20+ years of excellence in hospitality consulting</p>
                             </div>
                         </div>
                         <div class="feature-item">
@@ -330,7 +376,7 @@
                         <p>"We don't just provide solutions – we build partnerships that stand the test of time. Your long-term success is our commitment."</p>
                         <div class="quote-author">
                             <strong>Mr. Sandeep Puri</strong>
-                            <span>Founder, Sidh Inc.</span>
+                            <span>Founder & CEO, Sidh Inc.</span>
                         </div>
                     </div>
                 </div>
@@ -362,20 +408,20 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <a href="mailto:Sidhinc@gmail.com">Sidhinc@gmail.com</a>
+                                <a href="mailto:sidhanth.puri@sidhinc.com">sidhanth.puri@sidhinc.com</a>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
                                 <h4>Office</h4>
-                                <p>A8/18, DLF Phase 1<br>Gurgaon, Haryana, India</p>
+                                <p>We Work, 5th Floor, DLF Two Horizon Centre, Golf Course Road, DLF Phase 5<br>Gurgaon, Haryana 122002</p>
                             </div>
                         </div>
                     </div>
                     <div class="business-hours">
                         <h4><i class="fas fa-clock"></i> Business Hours</h4>
-                        <p>Monday - Friday: 9:00 AM - 6:00 PM IST</p>
+                        <p>Monday - Friday: 10:00 AM - 5:00 PM IST</p>
                         <p>Saturday: 10:00 AM - 2:00 PM IST</p>
                     </div>
                 </div>
@@ -423,12 +469,137 @@
                             <span>Schedule Consultation</span>
                             <i class="fas fa-arrow-right"></i>
                         </button>
+		             <!-- Light consent note (non-intrusive) -->
+                             <p class="consent-note" aria-live="polite" style="text-align:center; margin-top:10px; font-size:0.9rem; color:#666;">
+                             By submitting, you agree that Sidh Inc. may contact you via WhatsApp and email regarding your inquiry.
+                             </p>
                         <div class="form-message" id="formMessage"></div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Whatsapp connection -->
+    
+<script>
+  (function () {
+    // === CONFIG ===
+    // Use full international format WITHOUT '+' or spaces
+    // Currently using the phone number shown on your site
+    var WHATSAPP_NUMBER = "919810199548";
+
+    // --- Utility helpers ---
+    function clean(s) { return (s || "").toString().replace(/\s+/g, " ").trim(); }
+    function looksLikeEmail(s) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s || ""); }
+    function looksLikePhone(s) { return /^[0-9+\-\s()]{7,}$/.test(s || ""); }
+
+    function buildMessage(values) {
+      var lines = [
+        "New consultation request via Sidh Inc. website:",
+        "",
+        "• Name: " + values.name,
+        "• Company: " + (values.company || "—"),
+        "• Email: " + values.email,
+        "• Phone: " + values.phone,
+        "• Service: " + (values.serviceText || values.service || "—"),
+        "",
+        "Project details:",
+        values.message
+      ];
+      return lines.join("\n");
+    }
+
+    function openWhatsAppWithMessage(text) {
+      var encoded = encodeURIComponent(text);
+      var waUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encoded;
+      // Try opening in a new tab (works on desktop and mobile)
+      var win = window.open(waUrl, "_blank");
+      if (!win) {
+        // Fallback in case pop-ups are blocked
+        window.location.href = waUrl;
+      }
+    }
+
+    function showInlineError(el, msg) {
+      if (!el) return;
+      var id = el.getAttribute("id") || el.getAttribute("name") || "field";
+      var errId = id + "-err";
+      var existing = document.getElementById(errId);
+      if (!existing) {
+        existing = document.createElement("div");
+        existing.id = errId;
+        existing.style.color = "#c0392b";
+        existing.style.fontSize = "0.9rem";
+        existing.style.marginTop = "4px";
+        existing.setAttribute("role", "alert");
+        el.insertAdjacentElement("afterend", existing);
+      }
+      existing.textContent = msg;
+    }
+    function clearInlineError(el) {
+      if (!el) return;
+      var id = el.getAttribute("id") || el.getAttribute("name") || "field";
+      var existing = document.getElementById(id + "-err");
+      if (existing) existing.textContent = "";
+    }
+
+    function onSubmit() {
+      var form = document.getElementById("contactForm") || document.querySelector("form.contact-form");
+
+      // Get fields by your exact IDs (no renaming)
+      var nameEl    = document.getElementById("name");
+      var companyEl = document.getElementById("company");
+      var emailEl   = document.getElementById("email");
+      var phoneEl   = document.getElementById("phone");
+      var serviceEl = document.getElementById("service");
+      var messageEl = document.getElementById("message");
+
+      var name    = clean(nameEl && nameEl.value);
+      var company = clean(companyEl && companyEl.value);
+      var email   = clean(emailEl && emailEl.value);
+      var phone   = clean(phoneEl && phoneEl.value);
+      var service = clean(serviceEl && serviceEl.value);
+      var serviceText = serviceEl && serviceEl.options && serviceEl.selectedIndex >= 0
+        ? clean(serviceEl.options[serviceEl.selectedIndex].text)
+        : "";
+      var message = clean(messageEl && messageEl.value);
+
+      // Basic client-side validation (non-invasive)
+      var ok = true;
+      if (!name) { ok = false; showInlineError(nameEl, "Please enter your full name."); } else { clearInlineError(nameEl); }
+      if (!email || !looksLikeEmail(email)) { ok = false; showInlineError(emailEl, "Please enter a valid email address."); } else { clearInlineError(emailEl); }
+      if (!phone || !looksLikePhone(phone)) { ok = false; showInlineError(phoneEl, "Please enter a valid phone number."); } else { clearInlineError(phoneEl); }
+      if (!message) { ok = false; showInlineError(messageEl, "Please share a brief about your project."); } else { clearInlineError(messageEl); }
+      if (!ok) return;
+
+      var msg = buildMessage({ name, company, email, phone, service, serviceText, message });
+      openWhatsAppWithMessage(msg);
+    }
+
+    function wireUp() {
+      var form = document.getElementById("contactForm") || document.querySelector("form.contact-form");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();    // prevent default form post
+          onSubmit();            // trigger WhatsApp
+        });
+      }
+
+      // Also attempt to bind the button in case it’s clicked directly
+      var submitBtn = form ? form.querySelector("button[type='submit']") : document.querySelector("button[type='submit']");
+      if (submitBtn) {
+        submitBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          onSubmit();
+        });
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", wireUp);
+  })();
+</script>
+	
 
     <!-- Footer -->
     <footer class="footer">
@@ -463,13 +634,13 @@
                     <h4>Contact</h4>
                     <ul class="footer-contact">
                         <li><i class="fas fa-phone"></i> +91 9810199548</li>
-                        <li><i class="fas fa-envelope"></i> Sidhinc@gmail.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> A8/18, DLF Phase 1<br>Gurgaon, Haryana</li>
+                        <li><i class="fas fa-envelope"></i> sidhanth.puri@sidhinc.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i>We Work, 5th Floor, DLF Two Horizon Centre, Golf Course Road, DLF Phase 5, Gurugram, Haryana 122002</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Sidh Inc. All rights reserved. | Transforming Hospitality Vision Into Reality</p>
+                <p>&copy; 2026 Sidh Inc. All rights reserved. | Hospitality Consulting & Hotel Advisory Firm in India</p>
             </div>
         </div>
     </footer>
