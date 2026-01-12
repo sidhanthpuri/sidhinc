@@ -156,7 +156,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #0077B6 0%, #03045E 100%);
+    background: linear-gradient(15deg, #0077B6 0%, #03045E 100%);
     padding-top: 80px;
     overflow: hidden;
 }
@@ -435,18 +435,31 @@ section {
     max-width: 400px;
 }
 
-.founder-icon {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    border-radius: 50%;
-    margin: 0 auto 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    color: var(--white);
+
+.founder-photo {
+  position: relative; /* Needed for ::before positioning */
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
 }
+
+.founder-photo::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 120px;
+  height: 120px;
+  transform: translateX(-50%);
+  background-image: url('sidh-inc-hospitality-consultant.jpeg'); /* Replace with your actual image path */
+  background-size: cover;        /* Ensures the image fills the circle */
+  background-repeat: no-repeat;
+  background-position: 60% cener;
+  border-radius: 50%;            /* Makes it circular */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
 
 .founder-card h3 {
     font-family: 'Playfair Display', serif;
@@ -1146,19 +1159,51 @@ section {
 
 
 /* ===== Brand Logo (prefixed before Sidh.inc) ===== */
-.logo { display: inline-flex; align-items: center; gap: 0.5rem; }
+
+/* Header container: you control the visual height here */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 10px;       /* reduce/increase header height as needed */
+}
+
+/* Logo + brand text wrapper */
+
+.logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;                  /* remove extra gap */
+  line-height: 1;
+  padding-left: 130px;     /* was 208px, now equal to logo width */
+  height: 40px;
+}
+
+
+/* The logo image remains 200×200 but no longer affects layout height */
+
 .logo::before {
   content: '';
-  display: inline-block;
-  width: 28px; height: 28px;
-  background-image: url('sidh inc logo.jpg');
-  background-size: contain; background-repeat: no-repeat; background-position: center;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 200px;
+  height: 200px;
+  transform: translateY(-50%);
+  background-image: url('sidh-inc-logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 4px;
 }
-.footer-logo::before {
-  content: '';
-  display: inline-block;
-  width: 24px; height: 24px; margin-right: 0.4rem;
-  background-image: url('sidh inc logo.jpg');
-  background-size: contain; background-repeat: no-repeat; background-position: center;
+
+
+/* Optional: tighten nav spacing if the header still feels wide */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;                  /* adjust to taste */
 }
+
+
